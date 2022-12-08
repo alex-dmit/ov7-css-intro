@@ -1,0 +1,105 @@
+html {
+    font-size: 20px;
+}
+
+.container {
+    /* display: flex; */
+    gap: 10px;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+div.elem {
+    background-color: red;
+    /* width: 50px; */
+    flex-basis: 50px;
+    height: 50px;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* margin: 10px; */
+}
+
+.elem6 {
+    flex-shrink: 5;
+}
+
+.elem7 {
+    flex-grow: 2;
+}
+
+.elem8 {
+    flex-grow: 1;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    height: 100vh;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%); */
+    /* height: 100vh; */
+    /* font-size: 10px; */
+}
+
+.modal form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    height: 200px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    padding: 20px;
+    gap: 1.5rem;
+    z-index: 2;
+}
+
+.modal-background {
+    background-color: rgba(0, 0, 0, 0.413);
+    position: absolute;
+    inset: 0;
+    height: 100vh;
+    z-index: 1;
+}
+
+.form-area {
+    display: flex;
+    justify-content: space-between;
+}
+
+.form-area.submit button {
+    flex-grow: 1;
+}
+
+.form-area input {
+    border: 2px solid rgb(185, 185, 185);
+    border-radius: 4px;
+    outline: none;
+}
+
+.form-area input:hover {
+    border: 2px solid rgb(131, 131, 131);
+}
+
+.form-area input:focus {
+    border: 2px solid rgb(59, 47, 231);
+    box-shadow: #ed10ce 6px 6px 1px 0px, 
+                #1074ed -9px -10px 1px 0px;
+}
+/* .form-area input:active {
+    border: 2px solid rgb(59, 47, 231);
+} */
