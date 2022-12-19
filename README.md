@@ -40,3 +40,11 @@ $ git commit -m "First commit"
 7. Send changes to the central repository
 
 `$ git push origin master`
+
+8. Clone
+
+`$ git clone https://github.com/alex-dmit/ov7-css-intro.git`
+
+9. Pull
+
+`$ git pull`

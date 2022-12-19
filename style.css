@@ -41,6 +41,7 @@ div.elem {
     position: fixed;
     inset: 0;
     height: 100vh;
+    display: none;
     /* display: flex;
     justify-content: center;
     align-items: center; */
@@ -49,6 +50,10 @@ div.elem {
     transform: translate(-50%,-50%); */
     /* height: 100vh; */
     /* font-size: 10px; */
+}
+
+.modal.show {
+    display: block;
 }
 
 .modal form {
