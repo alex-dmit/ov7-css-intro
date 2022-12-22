@@ -3,11 +3,11 @@ html {
 }
 
 .container {
-    /* display: flex; */
+    display: flex;
     gap: 10px;
     flex-direction: row;
-    justify-content: flex-end;
-    align-items: flex-end;
+    /* justify-content: flex-end;
+    align-items: flex-end; */
     flex-wrap: wrap;
     align-content: flex-start;
 }
