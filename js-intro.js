@@ -174,3 +174,62 @@ function sum(a, b) {
 }
 
 sum('1', '2')
+
+const obj = {
+    a: 1,
+    b: {
+        c: 2,
+        d: {
+            f: 'Hello'
+        },
+        e: [1,2,3,4,5]
+    }
+}
+
+function getValues(obj) {
+    const result = []    
+    function recursion(value) {
+        if (typeof value === 'object') { // Array of Object
+            for (const el of Object.values(value)) {
+                recursion(el)
+            }
+        } else result.push(value)
+    }
+    recursion(obj)
+    return result
+}
+
+console.log(getValues(obj))
+
+Object.keys(obj)
+Object.entries(obj)
+Object.values(obj)
+for (const key in obj) {
+    if (Object.hasOwnProperty.call(obj, key)) {
+        const element = obj[key];
+        console.log(key)
+    }
+}
+
+const objEntrence = {
+    a: 1,
+    b: 2,
+    c: 'Hello'
+}
+const objResult = {
+    A: 2,
+    B: 4,
+    C: 'Hello'
+}
+
+function convertObj(obj) {
+    const entries = Object.entries(obj)
+    return Object.fromEntries(entries.map(prop => {
+        return [
+            prop[0].toUpperCase(), 
+            typeof prop[1] === 'number' ? prop[1] * 2 : prop[1]
+        ]
+    }))
+}
+
+console.log(convertObj(objEntrence));

@@ -54,17 +54,93 @@
 // console.log(customParseInt('d102f45d')) // => 1245
 
 
-function getSubArray(arr) {
-    let arrs = []
-    for (let i = 0; i < arr.length; i++) {
-        let subarr = []
-        for (let j = i; j < arr.length; j++) {
-            subarr.push(arr[j])
-            if ((j < arr.length - 1) && (arr[j] > arr[j + 1])) break
-        }
-        arrs.push(subarr)
-    }
-    return arrs.sort((a, b) => a.length - b.length).pop()
+// function getSubArray(arr) {
+//     let arrs = []
+//     for (let i = 0; i < arr.length; i++) {
+//         let subarr = []
+//         for (let j = i; j < arr.length; j++) {
+//             subarr.push(arr[j])
+//             if ((j < arr.length - 1) && (arr[j] > arr[j + 1])) break
+//         }
+//         arrs.push(subarr)
+//     }
+//     return arrs.sort((a, b) => a.length - b.length).pop()
+// }
+
+// console.log(getSubArray([5, 4, 2, 3, 4, 2, 3, 4, 56]))
+
+
+
+// const obj = {
+//     a: 1,
+//     b: {
+//         c: 2,
+//         d: {
+//             f: 'Hello'
+//         },
+//         e: [1,2,3,4,5]
+//     }
+// }
+
+// function getValues(obj) {
+//     const result = []    
+//     function recursion(value) {
+//         if (typeof value === 'object') { // Array of Object
+//             for (const el of Object.values(value)) {
+//                 recursion(el)
+//             }
+//         } else result.push(value)
+//     }
+//     recursion(obj)
+//     return result
+// }
+
+// console.log(getValues(obj))
+
+
+// const objEntrance = {
+//     a: 1,
+//     b: 2,
+//     c: 'Hello'
+// }
+
+// function convertObj(obj) {
+//     return Object.fromEntries(Object.entries(obj).map(prop => {
+//         return [
+//             prop[0].toUpperCase(), 
+//             typeof prop[1] === 'number' ? prop[1] * 2 : prop[1]
+//         ]
+//     }))
+// }
+
+// function convertObj(obj) {
+//     const resultObj = {}
+//     const keys = Object.keys(obj)
+//     keys.forEach(key => {
+//         const newValue = typeof obj[key] === 'number' ? obj[key] * 2 : obj[key]
+//         // let newValue
+//         // if (typeof obj[key] === 'number') newValue = obj[key] * 2 
+//         // else newValue = obj[key]
+//         resultObj[key.toUpperCase()] = newValue
+//     })
+//     return resultObj
+// }
+
+// console.log(convertObj(objEntrance));
+
+const objEntrance = {
+    a: 1,
+    b: 2,
+    c: 'Hello',
+    d: true,
+    e: "Hi there"
 }
 
-console.log(getSubArray([5, 4, 2, 3, 4, 2, 3, 4, 56]))
+function toString(obj) {
+    return `{${Object.entries(obj).map(entry => 
+        `${entry[0]}:${typeof entry[1] === 'string' ? `"${entry[1]}"` : entry[1]}`)
+        .join(',')}}`
+    return '{a:1,b:2,c:"Hello",d:true}'
+}
+
+console.log(toString(objEntrance));
