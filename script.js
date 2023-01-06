@@ -71,16 +71,7 @@
 
 
 
-// const obj = {
-//     a: 1,
-//     b: {
-//         c: 2,
-//         d: {
-//             f: 'Hello'
-//         },
-//         e: [1,2,3,4,5]
-//     }
-// }
+
 
 // function getValues(obj) {
 //     const result = []    
@@ -128,6 +119,90 @@
 
 // console.log(convertObj(objEntrance));
 
+// const objEntrance = {
+//     a: 1,
+//     b: 2,
+//     c: 'Hello',
+//     d: true,
+//     e: "Hi there"
+// }
+
+// function toString(obj) {
+//     return `{${Object.entries(obj).map(entry => 
+//         `${entry[0]}:${typeof entry[1] === 'string' ? `"${entry[1]}"` : entry[1]}`)
+//         .join(',')}}`
+//     return '{a:1,b:2,c:"Hello",d:true}'
+// }
+
+// console.log(toString(objEntrance));
+
+// const obj = {
+//     a: 1,
+//     b: {
+//         c: 2,
+//         d: {
+//             f: 'Hello'
+//         },
+//         e: [1,2,3,4,5],
+//         f: null,
+//         g: {
+//             h: [' ']
+//         }
+//     }
+// }
+
+// function getValues(obj) {
+//     return obj && typeof obj === 'object'
+//         ? Object.values(obj).reduce((acc, cur) => {
+//             const arr = getValues(cur)
+//             return [...acc, ...arr]
+//         }, [])
+//         : [obj]
+//     // return obj && typeof obj === 'object' 
+//     //     ? Object.values(obj).flatMap(getValues)
+//     //     : obj
+
+//     // if (obj !== null && typeof obj === 'object') {
+//     //     const values = Object.values(obj)
+//     //     const result = values.map((value) => {
+//     //         return getValues(value)
+//     //     })
+//     //     const flattered = result.flat()
+//     //     return flattered
+//     // } else {
+//     //     return obj
+//     // }
+//     // return obj !== null && typeof obj === 'object' 
+//     //     // ? Object.values(obj).map(value => getValues(value)).flat()
+//     //     // ? Object.values(obj).flatMap(getValues)
+//     //     ? Object.values(obj).flatMap(getValues)
+//     //     : obj
+// }
+
+// // console.log(getValues(obj));
+// // arr = []
+function flatten(obj, values = [], keys = []) {
+    for (const key in obj) {
+        if (Object.hasOwnProperty.call(obj, key)) {
+            const value = obj[key];
+            if (!Array.isArray(obj)) keys.push(key)
+            if (value !== null && typeof value === 'object') {
+                flatten(value, values, keys)
+            } else {
+                values.push(value)
+            }
+        }
+    }
+    return [values, keys]
+}
+
+// const result = flatten(obj)
+
+// console.log(result)
+
+
+
+
 const objEntrance = {
     a: 1,
     b: 2,
@@ -137,9 +212,17 @@ const objEntrance = {
 }
 
 function toString(obj) {
-    return `{${Object.entries(obj).map(entry => 
-        `${entry[0]}:${typeof entry[1] === 'string' ? `"${entry[1]}"` : entry[1]}`)
-        .join(',')}}`
+    return `{${Object.entries(obj).reduce((acc, cur, index, arr) => {
+        const key = cur[0]
+        const value = cur[1]
+        const resultValue = typeof value === 'string' ? ('"' + value + '"') : value
+        const comma = (arr.length - 1 !== index) ? ',' : ''
+        return acc + `${key}:${resultValue}${comma}`
+    }, '')}}`
+        
+        // .map(entry => 
+        // `${entry[0]}:${typeof entry[1] === 'string' ? `"${entry[1]}"` : entry[1]}`)
+        // .join(',')}}`
     return '{a:1,b:2,c:"Hello",d:true}'
 }
 
