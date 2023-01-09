@@ -181,49 +181,109 @@
 
 // // console.log(getValues(obj));
 // // arr = []
-function flatten(obj, values = [], keys = []) {
-    for (const key in obj) {
-        if (Object.hasOwnProperty.call(obj, key)) {
-            const value = obj[key];
-            if (!Array.isArray(obj)) keys.push(key)
-            if (value !== null && typeof value === 'object') {
-                flatten(value, values, keys)
-            } else {
-                values.push(value)
-            }
-        }
-    }
-    return [values, keys]
-}
+// function flatten(obj, values = [], keys = []) {
+//     for (const key in obj) {
+//         if (Object.hasOwnProperty.call(obj, key)) {
+//             const value = obj[key];
+//             if (!Array.isArray(obj)) keys.push(key)
+//             if (value !== null && typeof value === 'object') {
+//                 flatten(value, values, keys)
+//             } else {
+//                 values.push(value)
+//             }
+//         }
+//     }
+//     return [values, keys]
+// }
 
-// const result = flatten(obj)
+// // const result = flatten(obj)
 
-// console.log(result)
-
-
+// // console.log(result)
 
 
-const objEntrance = {
-    a: 1,
-    b: 2,
-    c: 'Hello',
-    d: true,
-    e: "Hi there"
-}
 
-function toString(obj) {
-    return `{${Object.entries(obj).reduce((acc, cur, index, arr) => {
-        const key = cur[0]
-        const value = cur[1]
-        const resultValue = typeof value === 'string' ? ('"' + value + '"') : value
-        const comma = (arr.length - 1 !== index) ? ',' : ''
-        return acc + `${key}:${resultValue}${comma}`
-    }, '')}}`
+
+// const objEntrance = {
+//     a: 1,
+//     b: 2,
+//     c: 'Hello',
+//     d: true,
+//     e: "Hi there"
+// }
+
+// function toString(obj) {
+//     return `{${Object.entries(obj).reduce((acc, cur, index, arr) => {
+//         const key = cur[0]
+//         const value = cur[1]
+//         const resultValue = typeof value === 'string' ? ('"' + value + '"') : value
+//         const comma = (arr.length - 1 !== index) ? ',' : ''
+//         return acc + `${key}:${resultValue}${comma}`
+//     }, '')}}`
         
-        // .map(entry => 
-        // `${entry[0]}:${typeof entry[1] === 'string' ? `"${entry[1]}"` : entry[1]}`)
-        // .join(',')}}`
-    return '{a:1,b:2,c:"Hello",d:true}'
+//         // .map(entry => 
+//         // `${entry[0]}:${typeof entry[1] === 'string' ? `"${entry[1]}"` : entry[1]}`)
+//         // .join(',')}}`
+//     return '{a:1,b:2,c:"Hello",d:true}'
+// }
+
+// console.log(toString(objEntrance));
+
+
+function sumRecursive(array = []) {
+    if (array.length === 0) return 0
+    return array.pop() + sumRecursive(array)
+}
+sumRecursive()
+// console.log(sumLoop([1,2,3,4,5]));
+// console.log(sumReduce([1,2,3,4,5]));
+const array = [1,2,3,4,5]
+console.log(sumRecursive(array));
+console.log(array);
+
+
+function stringWithoutVowels(str) { // "Hello world"
+    const vowels = ['a', 'e', 'i', 'o', 'u']
+    let result = ''
+    // return 'Hll wrld'
+    // return str.replace(/[aeiou]/ig, '')
+    // return str.split('').filter((letter) => {
+    //     return !vowels.includes(letter)
+    // }).join('')
+    for (const letter of str) {
+        if (!vowels.includes(letter)) result += letter
+    }
+    return result
 }
 
-console.log(toString(objEntrance));
+console.log(stringWithoutVowels('Hello world'));
+
+// ["Hello", "world", "Hello"]
+function removeDublicates(arrayStr = []) {
+    // ["Hello", "world", "Hello"]
+    // const obj = {
+    //     Hello: null,
+    //     world: null,
+    // }
+    // return ["Hello", "world"]
+    let obj = {}
+    arrayStr.forEach((str) => {
+        obj[str] = null
+    })
+    return Object.keys(obj)
+    // return [...new Set(arrayStr)]
+}
+
+console.log(removeDublicates(["Hello", "world", "Hello"]));
+
+//     12
+// 11
+//     10
+// 9
+//     8
+// 7
+//     6
+// 5
+//     4
+// 3
+//     2
+// 1

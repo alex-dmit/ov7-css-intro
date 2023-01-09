@@ -232,4 +232,21 @@ function convertObj(obj) {
     }))
 }
 
-console.log(convertObj(objEntrence));
+// console.log(convertObj(objEntrence));
+
+function sumLoop(arr = []) {
+
+}
+
+function sumReduce(arr = []) {
+    
+}
+
+function sumRecursive(arr = []) {
+    if (arr.length === 0) return 0
+    return arr.pop() + sumRecursive(arr)
+}
+
+// console.log(sumLoop([1,2,3,4,5]));
+// console.log(sumReduce([1,2,3,4,5]));
+console.log(sumRecursive([1,2,3,4,5]));
