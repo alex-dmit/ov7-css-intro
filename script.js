@@ -229,51 +229,51 @@
 // console.log(toString(objEntrance));
 
 
-function sumRecursive(array = []) {
-    if (array.length === 0) return 0
-    return array.pop() + sumRecursive(array)
-}
-sumRecursive()
-// console.log(sumLoop([1,2,3,4,5]));
-// console.log(sumReduce([1,2,3,4,5]));
-const array = [1,2,3,4,5]
-console.log(sumRecursive(array));
-console.log(array);
+// function sumRecursive(array = []) {
+//     if (array.length === 0) return 0
+//     return array.pop() + sumRecursive(array)
+// }
+// sumRecursive()
+// // console.log(sumLoop([1,2,3,4,5]));
+// // console.log(sumReduce([1,2,3,4,5]));
+// const array = [1,2,3,4,5]
+// console.log(sumRecursive(array));
+// console.log(array);
 
 
-function stringWithoutVowels(str) { // "Hello world"
-    const vowels = ['a', 'e', 'i', 'o', 'u']
-    let result = ''
-    // return 'Hll wrld'
-    // return str.replace(/[aeiou]/ig, '')
-    // return str.split('').filter((letter) => {
-    //     return !vowels.includes(letter)
-    // }).join('')
-    for (const letter of str) {
-        if (!vowels.includes(letter)) result += letter
-    }
-    return result
-}
+// function stringWithoutVowels(str) { // "Hello world"
+//     const vowels = ['a', 'e', 'i', 'o', 'u']
+//     let result = ''
+//     // return 'Hll wrld'
+//     // return str.replace(/[aeiou]/ig, '')
+//     // return str.split('').filter((letter) => {
+//     //     return !vowels.includes(letter)
+//     // }).join('')
+//     for (const letter of str) {
+//         if (!vowels.includes(letter)) result += letter
+//     }
+//     return result
+// }
 
-console.log(stringWithoutVowels('Hello world'));
+// console.log(stringWithoutVowels('Hello world'));
 
-// ["Hello", "world", "Hello"]
-function removeDublicates(arrayStr = []) {
-    // ["Hello", "world", "Hello"]
-    // const obj = {
-    //     Hello: null,
-    //     world: null,
-    // }
-    // return ["Hello", "world"]
-    let obj = {}
-    arrayStr.forEach((str) => {
-        obj[str] = null
-    })
-    return Object.keys(obj)
-    // return [...new Set(arrayStr)]
-}
+// // ["Hello", "world", "Hello"]
+// function removeDublicates(arrayStr = []) {
+//     // ["Hello", "world", "Hello"]
+//     // const obj = {
+//     //     Hello: null,
+//     //     world: null,
+//     // }
+//     // return ["Hello", "world"]
+//     let obj = {}
+//     arrayStr.forEach((str) => {
+//         obj[str] = null
+//     })
+//     return Object.keys(obj)
+//     // return [...new Set(arrayStr)]
+// }
 
-console.log(removeDublicates(["Hello", "world", "Hello"]));
+// console.log(removeDublicates(["Hello", "world", "Hello"]));
 
 //     12
 // 11
@@ -287,3 +287,48 @@ console.log(removeDublicates(["Hello", "world", "Hello"]));
 // 3
 //     2
 // 1
+
+
+
+const cars = [
+    {
+        id: 1,
+        name: 'Honda',
+        year: 1999
+    },
+    {
+        id: 2,
+        name: 'Toyota 1',
+        year: 2010
+    },
+    {
+        id: 3,
+        name: 'Toyota 2',
+        year: 2015
+    },
+    {
+        id: 4,
+        name: 'Mazda',
+        year: 2020
+    },
+]
+
+function filter(filterObj) {
+    // let filterObj = { name: 'mazd', minYear: 2000 }
+    return cars.filter(car => {
+        return filterByName(car, filterObj)
+            && filterByYear(car, filterObj)
+    })
+}
+
+function filterByName(car, filterObj) {
+    return car.name.toLowerCase().includes(filterObj.name.toLowerCase())
+}
+
+function filterByYear(car, filterObj) {
+    if (filterObj.minYear) {}
+    if (filterObj.maxYear) {}
+    return car.year >= filterObj.minYear && car.year <= filterObj.maxYear
+}
+
+console.log(filter({ name: 'mazd', minYear: 2018 }))
