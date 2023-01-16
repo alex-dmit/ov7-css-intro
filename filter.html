@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car shop</title>
+</head>
+<body>
+    <form id="filter">
+        <label for="name">Name: </label>
+        <input name="car-name" id="name" type="text">
+        <label for="min-year">Min year</label>
+        <input name="min-year" id="min-year" type="number" min="1900" max="2023">
+        <label for="max-year">Max year</label>
+        <input name="max-year" id="max-year" type="number" min="1900" max="2023">
+        <button type="submit">Apply filters</button>
+    </form>
+    <ul id="cars-list"></ul>
+    <script src="filter.js"></script>
+</body>
+</html>

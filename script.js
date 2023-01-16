@@ -219,7 +219,7 @@
 //         const comma = (arr.length - 1 !== index) ? ',' : ''
 //         return acc + `${key}:${resultValue}${comma}`
 //     }, '')}}`
-        
+
 //         // .map(entry => 
 //         // `${entry[0]}:${typeof entry[1] === 'string' ? `"${entry[1]}"` : entry[1]}`)
 //         // .join(',')}}`
@@ -290,45 +290,97 @@
 
 
 
-const cars = [
-    {
-        id: 1,
-        name: 'Honda',
-        year: 1999
-    },
-    {
-        id: 2,
-        name: 'Toyota 1',
-        year: 2010
-    },
-    {
-        id: 3,
-        name: 'Toyota 2',
-        year: 2015
-    },
-    {
-        id: 4,
-        name: 'Mazda',
-        year: 2020
-    },
-]
+// const cars = [
+//     {
+//         id: 1,
+//         name: 'Honda',
+//         year: 1999
+//     },
+//     {
+//         id: 2,
+//         name: 'Toyota 1',
+//         year: 2010
+//     },
+//     {
+//         id: 3,
+//         name: 'Toyota 2',
+//         year: 2015
+//     },
+//     {
+//         id: 4,
+//         name: 'Mazda',
+//         year: 2020
+//     },
+// ]
 
-function filter(filterObj) {
-    // let filterObj = { name: 'mazd', minYear: 2000 }
-    return cars.filter(car => {
-        return filterByName(car, filterObj)
-            && filterByYear(car, filterObj)
-    })
-}
+// function filter(filterObj) {
+//     // let filterObj = { name: 'mazd', minYear: 2000 }
+//     return cars.filter(car => {
+//         return filterByName(car, filterObj)
+//             && filterByYear(car, filterObj)
+//     })
+// }
 
-function filterByName(car, filterObj) {
-    return car.name.toLowerCase().includes(filterObj.name.toLowerCase())
-}
+// function filterByName(car, filterObj) {
+//     return car.name.toLowerCase().includes(filterObj.name.toLowerCase())
+// }
 
-function filterByYear(car, filterObj) {
-    if (filterObj.minYear) {}
-    if (filterObj.maxYear) {}
-    return car.year >= filterObj.minYear && car.year <= filterObj.maxYear
-}
+// function filterByYear(car, filterObj) {
+//     if (filterObj.minYear) {}
+//     if (filterObj.maxYear) {}
+//     return car.year >= filterObj.minYear && car.year <= filterObj.maxYear
+// }
 
-console.log(filter({ name: 'mazd', minYear: 2018 }))
+// console.log(filter({ name: 'mazd', minYear: 2018 }))
+
+
+// function rowSumOddNumbers(n) {
+// 	// TODO
+//   let curNum = 1
+//   let curRow = 1
+//   while (curRow < n) {
+//     curNum += 2 * curRow
+//     curRow++
+//   }
+//   let sum = 0
+//   while(n--) {
+//     sum += curNum
+//     curNum += 2
+//   }
+//   return sum
+// }
+
+// console.log(rowSumOddNumbers(5))
+
+
+
+// function addingShifted (arrayOfArrays, shift) {
+//     return arrayOfArrays
+//         .map((array, i) => {
+//             return [
+//                 ...Array(shift * i).fill(0), // [0,0,0]
+//                 ...array, // [7,7,7,-7,7,7]
+//                 ...Array(shift * (arrayOfArrays.length - i - 1)).fill(0)  // [0,0,0,0,0,0]
+//             ]
+//         })
+//         .reduce((result, array) => {
+//             return result.map((cur, i) => cur + array[i])
+//         })
+//   }
+
+// function addingShifted (arrayOfArrays, shift) {
+//     return arrayOfArrays.reduce((result, array, i) => {
+//       const arrayWithZeros = [
+//         ...Array(shift * i).fill(0), 
+//         ...array, 
+//         ...Array(shift * (arrayOfArrays.length - i - 1)).fill(0)
+//       ]
+//       return result ? result.map((res, i) => res + arrayWithZeros[i]) : arrayWithZeros
+//     }, null)
+//   }
+
+// console.log(addingShifted([[1,2,3,4,5,6], [7,7,7,-7,7,7], [1,1,1,1,1,1]], 3));
+
+// [1,2,3,4,5].reduce((a,b) => {
+//     return a + b
+// })
