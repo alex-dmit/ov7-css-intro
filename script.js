@@ -384,3 +384,76 @@
 // [1,2,3,4,5].reduce((a,b) => {
 //     return a + b
 // })
+
+
+const arr = [1,2,3,4,5,6,7,8]
+console.log(arr.filter(el => el % 2 === 0));
+
+const employees = [
+    {name: 'John', department: 'sales'},
+    {name: 'Jane', department: 'marketing'},
+    {name: 'Bob', department: 'IT'},
+    {name: 'Sara', department: 'sales'},
+]
+
+console.log(employees.filter(employee => employee.department === 'sales'));
+
+const animals = ['dog', 'cat', 'bird', 'elephant', 'fish']
+
+console.log(animals.filter(animal => animal.length > 3));
+
+const numbers = [1,2,3,4,5,6,7,8,9,10,11] // => Primal numbers: [2,3,5,7,11]
+
+console.log(numbers.filter(num => {
+    if (num < 2) return false;
+    // let flag = true;
+    return [...Array(num > 2 ? num - 2 : 0)].map((el,i) => i + 2).reduce((acc, cur) => {
+        return acc && num % cur !== 0
+    }, true)
+    // for (let i = 2; i < num; i++) {
+    //     if (num % i === 0) return false
+    // }
+    // return flag
+}));
+
+const reduceArray = ['one', 'two', 'three', 'four'] 
+// => {one: 2, two: 9, three: 2, four: 5}
+
+let reduceObj = {}
+reduceArray.forEach(key => {
+    reduceObj[key] = Math.ceil(Math.random() * 10)
+})
+console.log(reduceObj);
+
+console.log(reduceArray.reduce((acc, cur) => {
+    return {...acc, [cur]: Math.ceil(Math.random() * 10)}
+    // acc[cur] = Math.ceil(Math.random() * 10)
+    // return acc
+}, {}))
+
+const users = [
+    {id: 'ids', name: 'John', department: 'sales'},
+    {id: 'qwer2', name: 'Jane', department: 'marketing'},
+    {id: 'qwer3', name: 'Bob', department: 'IT'},
+    {id: 'qwer4', name: 'Sara', department: 'sales'},
+] // Normalization
+const answer = {
+    entities: {
+        qwer1: {id: 'qwer1', name: 'John', department: 'sales'},
+        qwer2: {id: 'qwer2', name: 'Jane', department: 'marketing'},
+        qwer3: {id: 'qwer3', name: 'Bob', department: 'IT'},
+        qwer4: {id: 'qwer4', name: 'Sara', department: 'sales'},
+    },
+    ids: ['qwer1','qwer2','qwer3','qwer4']
+}
+
+console.log(users.reduce((acc, user) => {
+    return { 
+        entities: {...acc.entities, [user.id]: user}, 
+        ids: [...acc.ids, user.id]
+    }
+}, { entities: {}, ids: [] }));
+
+// answer.ids.forEach(id => {
+//     console.log(answer[id]);
+// })
