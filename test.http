@@ -1,0 +1,12 @@
+GET http://hello-world.com/users
+# => JSON
+### URI
+
+POST http://hello-world.com/users
+Content-Type: application/json
+Authorization: token 123131231
+
+{
+    "name": "Jo",
+    "age": 12
+}

@@ -386,74 +386,117 @@
 // })
 
 
-const arr = [1,2,3,4,5,6,7,8]
-console.log(arr.filter(el => el % 2 === 0));
+// const arr = [1,2,3,4,5,6,7,8]
+// console.log(arr.filter(el => el % 2 === 0));
 
-const employees = [
-    {name: 'John', department: 'sales'},
-    {name: 'Jane', department: 'marketing'},
-    {name: 'Bob', department: 'IT'},
-    {name: 'Sara', department: 'sales'},
-]
+// const employees = [
+//     {name: 'John', department: 'sales'},
+//     {name: 'Jane', department: 'marketing'},
+//     {name: 'Bob', department: 'IT'},
+//     {name: 'Sara', department: 'sales'},
+// ]
 
-console.log(employees.filter(employee => employee.department === 'sales'));
+// console.log(employees.filter(employee => employee.department === 'sales'));
 
-const animals = ['dog', 'cat', 'bird', 'elephant', 'fish']
+// const animals = ['dog', 'cat', 'bird', 'elephant', 'fish']
 
-console.log(animals.filter(animal => animal.length > 3));
+// console.log(animals.filter(animal => animal.length > 3));
 
-const numbers = [1,2,3,4,5,6,7,8,9,10,11] // => Primal numbers: [2,3,5,7,11]
+// const numbers = [1,2,3,4,5,6,7,8,9,10,11] // => Primal numbers: [2,3,5,7,11]
 
-console.log(numbers.filter(num => {
-    if (num < 2) return false;
-    // let flag = true;
-    return [...Array(num > 2 ? num - 2 : 0)].map((el,i) => i + 2).reduce((acc, cur) => {
-        return acc && num % cur !== 0
-    }, true)
-    // for (let i = 2; i < num; i++) {
-    //     if (num % i === 0) return false
-    // }
-    // return flag
-}));
+// console.log(numbers.filter(num => {
+//     if (num < 2) return false;
+//     // let flag = true;
+//     return [...Array(num > 2 ? num - 2 : 0)].map((el,i) => i + 2).reduce((acc, cur) => {
+//         return acc && num % cur !== 0
+//     }, true)
+//     // for (let i = 2; i < num; i++) {
+//     //     if (num % i === 0) return false
+//     // }
+//     // return flag
+// }));
 
-const reduceArray = ['one', 'two', 'three', 'four'] 
-// => {one: 2, two: 9, three: 2, four: 5}
+// const reduceArray = ['one', 'two', 'three', 'four'] 
+// // => {one: 2, two: 9, three: 2, four: 5}
 
-let reduceObj = {}
-reduceArray.forEach(key => {
-    reduceObj[key] = Math.ceil(Math.random() * 10)
-})
-console.log(reduceObj);
+// let reduceObj = {}
+// reduceArray.forEach(key => {
+//     reduceObj[key] = Math.ceil(Math.random() * 10)
+// })
+// console.log(reduceObj);
 
-console.log(reduceArray.reduce((acc, cur) => {
-    return {...acc, [cur]: Math.ceil(Math.random() * 10)}
-    // acc[cur] = Math.ceil(Math.random() * 10)
-    // return acc
-}, {}))
+// console.log(reduceArray.reduce((acc, cur) => {
+//     return {...acc, [cur]: Math.ceil(Math.random() * 10)}
+//     // acc[cur] = Math.ceil(Math.random() * 10)
+//     // return acc
+// }, {}))
 
-const users = [
-    {id: 'ids', name: 'John', department: 'sales'},
-    {id: 'qwer2', name: 'Jane', department: 'marketing'},
-    {id: 'qwer3', name: 'Bob', department: 'IT'},
-    {id: 'qwer4', name: 'Sara', department: 'sales'},
-] // Normalization
-const answer = {
-    entities: {
-        qwer1: {id: 'qwer1', name: 'John', department: 'sales'},
-        qwer2: {id: 'qwer2', name: 'Jane', department: 'marketing'},
-        qwer3: {id: 'qwer3', name: 'Bob', department: 'IT'},
-        qwer4: {id: 'qwer4', name: 'Sara', department: 'sales'},
-    },
-    ids: ['qwer1','qwer2','qwer3','qwer4']
-}
+// const users = [
+//     {id: 'ids', name: 'John', department: 'sales'},
+//     {id: 'qwer2', name: 'Jane', department: 'marketing'},
+//     {id: 'qwer3', name: 'Bob', department: 'IT'},
+//     {id: 'qwer4', name: 'Sara', department: 'sales'},
+// ] // Normalization
+// const answer = {
+//     entities: {
+//         qwer1: {id: 'qwer1', name: 'John', department: 'sales'},
+//         qwer2: {id: 'qwer2', name: 'Jane', department: 'marketing'},
+//         qwer3: {id: 'qwer3', name: 'Bob', department: 'IT'},
+//         qwer4: {id: 'qwer4', name: 'Sara', department: 'sales'},
+//     },
+//     ids: ['qwer1','qwer2','qwer3','qwer4']
+// }
 
-console.log(users.reduce((acc, user) => {
-    return { 
-        entities: {...acc.entities, [user.id]: user}, 
-        ids: [...acc.ids, user.id]
-    }
-}, { entities: {}, ids: [] }));
+// console.log(users.reduce((acc, user) => {
+//     return { 
+//         entities: {...acc.entities, [user.id]: user}, 
+//         ids: [...acc.ids, user.id]
+//     }
+// }, { entities: {}, ids: [] }));
 
 // answer.ids.forEach(id => {
 //     console.log(answer[id]);
 // })
+
+
+// const products = [
+//     {name: 'Product 1', price: 10, category: 'electronics'},
+//     {name: 'Product 2', price: 20, category: 'books'},
+//     {name: 'Product 3', price: 30, category: 'books'},
+//     {name: 'Product 4', price: 40, category: 'electronics'},
+// ] // books => []
+
+// function findNamesByCategory(category) { // books
+//     // return ['Product 2', 'Product 3']
+// }
+
+// const products2 = [
+//     {name: 'Product 1', price: 10, quantity: 2, category: 'electronics'},
+//     {name: 'Product 2', price: 20, quantity: 1, category: 'books'},
+//     {name: 'Product 3', price: 30, quantity: 3, category: 'books'},
+//     {name: 'Product 4', price: 40, quantity: 4, category: 'electronics'},
+// ]
+
+// function findTotalPriceByCategory(category) { // books
+//     // return 110
+// }
+
+var uniqueInOrder = function (iterable) {
+    if (typeof iterable === 'string') {
+        let uniqueLetters = [...new Set(iterable)]
+        uniqueLetters.forEach(letter => {
+            const regexp = new RegExp(`${letter}+`, 'g')
+            iterable = iterable.replace(regexp, letter)
+        })
+        return iterable.split('')
+    } else {
+        let result = []
+        if (iterable.length) result.push(iterable[0])
+        for (let i = 0; i < iterable.length - 1; i++) {
+            if (iterable[i] !== iterable[i + 1]) result.push(iterable[i + 1])
+        }
+        return result
+    }
+}
+
+console.log(uniqueInOrder('AAAABBBCCDAABBB'));
