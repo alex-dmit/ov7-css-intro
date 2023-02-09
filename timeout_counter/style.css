@@ -1,0 +1,30 @@
+@keyframes MessageOn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.3);
+    }
+    100% {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.show {
+    animation-duration: .5s;
+    animation-name: MessageOn;
+}
+
+.li-elem {
+    transform-origin: center left;
+    list-style: none;
+    padding: 0;
+    height: 50px;
+    width: 300px;
+    border: 2px solid red;
+    color: white;
+    border-radius: 5px;
+    background-color: rgb(254, 66, 66);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
